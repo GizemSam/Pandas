@@ -95,7 +95,7 @@ df.groupby(["time"]).agg({"total_bill": ["max","min", "sum"]})
 
 #Görev 19: Day ve time’a göre total_bill değerlerinin sum, min, max ve mean değerlerini bulunuz.
 
-df.groupby(["time", "day"]).agg({"total_bill": ["max","min", "sum"]})
+df.groupby(["time", "day"]).agg({"total_bill": ["max","min", "sum","mean"]})
 
 #Görev 20: Lunch zamanına ve kadın müşterilere ait total_bill ve tip değerlerinin day'e göre sum, min, max ve mean değerlerini bulunuz.
 
