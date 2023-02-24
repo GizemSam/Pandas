@@ -101,8 +101,8 @@ df.groupby(["time", "day"]).agg({"total_bill": ["max","min", "sum","mean"]})
 
 
 ### total_bill ve tip değerlerinin day'e göre sum, min, max ve mean değerlerini bulduk
-df.groupby([ "day"]).agg({"total_bill": ["max", "min", "sum"],
-                                 "tip": ["max", "min", "sum"]})
+df.groupby([ "day"]).agg({"total_bill": ["max", "min", "sum","mean"],
+                                 "tip": ["max", "min", "sum","mean"]})
 
 ### time ı lunch olan ve cinsiyeti kadın olanları listeledik. ilk 5 ine  baktık.
 
@@ -110,8 +110,8 @@ df.loc[(df["time"] == "Lunch") & (df["sex"] == "Female")].head()
 
 ###iki formülü birleştirelim.
 
-df.loc[(df["time"] == "Lunch") & (df["sex"] == "Female")].groupby([ "day"]).agg({"total_bill": ["max", "min", "sum"],
-                                 "tip": ["max", "min", "sum"]})
+df.loc[(df["time"] == "Lunch") & (df["sex"] == "Female")].groupby([ "day"]).agg({"total_bill": ["max", "min", "sum","mean"],
+                                 "tip": ["max", "min", "sum","mean"]})
 
 #Görev 21: size'i 3'ten küçük, total_bill'i 10'dan büyük olan siparişlerin ortalaması nedir? (loc kullanınız)
 
@@ -120,7 +120,7 @@ dff.head().mean()
 
 #Görev 22: total_bill_tip_sum adında yeni bir değişken oluşturunuz. Her bir müşterinin ödediği totalbill ve tip in toplamını versin.
 
-df["total_bill_sum"] = df["total_bill"] + df["tip"]
+df["total_bill_tip_sum"] = df["total_bill"] + df["tip"]
 
 df.head()
 
@@ -128,6 +128,6 @@ df.head()
 #Görev 23: total_bill_tip_sum değişkenine göre büyükten
 # küçüğe sıralayınız ve ilk 30 kişiyi yeni bir dataframe'e atayınız.
 
-new_df = df.sort_values("total_bill_sum", ascending= False).head(30)
+new_df = df.sort_values("total_bill_tip_sum", ascending= False).head(30)
 
 
